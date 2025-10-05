@@ -1,3 +1,6 @@
+# This program sends all lowercase and uppercase letters to serial port 2 (0x71000)
+# It uses the polling method rather than interrupts to ensure the port is ready before sending
+
 .text
 .global main
 
@@ -13,7 +16,7 @@ main:
     syscall
 
 loop:
-    lw $5, 0x71003($0) # Get status of serial port
+    lw $5, 0x71003($0) # Get status from Serial Status Register of serial port 2
     andi $5, $5, 0x2 # Mask out all but bit 1 (ready to transmit)
     beqz $5, loop # If not ready, wait
 
