@@ -19,3 +19,5 @@ main:
     jal count
 
     addui $sp, $sp, 2 # Revert stack modification
+
+    jr $ra
