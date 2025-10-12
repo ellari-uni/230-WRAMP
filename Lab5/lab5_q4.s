@@ -13,4 +13,3 @@ main:
     jal count
 
     addui $sp, $sp, 2
-    syscall
