@@ -12,9 +12,7 @@ main:
     addi $2, $0, 0x41 # 'A', first letter
     addi $3, $0, 0x5B # 'Z'+1, last letter +1 to ensure Z is included
     jal loop
-    
     syscall
-
 loop:
     lw $5, 0x71003($0) # Get status from Serial Status Register of serial port 2
     andi $5, $5, 0x2 # Mask out all but bit 1 (ready to transmit)
